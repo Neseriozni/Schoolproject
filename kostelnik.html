@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Četba na Scioskole k maturitě</title>
+</head>
+<body>
+    <h1>Četba na Scioskole k maturitě</h1>
+    
+    <p>
+        Vítejte na mém novém webu, kde se společně ponoříme do světa českého jazyka a hlavně maturitní četby. S radostí vás budu provázet tímto dobrodružstvím přípravy na maturitu, abych vám pomohl zdolat všechny výzvy spojené s četbou a českým jazykem.
+        Maturita není jen zkouškou znalostí, ale také příležitostí objevovat krásu slova a vyprávění. Na mém webu se zaměříme na to, abych vám dodal potřebné nástroje k tomu, abyste si maturitní četbu užili a zároveň připravili se na ni efektivně.
+        Čeká nás spousta tipů, triků a inspirace, jak projít četbou s lehkostí a získat maximum z této maturitní etapy. 
+        Tak jdeme na to společně!
+    </p>
+    
+    <!-- Vyhledávací formulář -->
+    <form id="search-form">
+        <label for="search-input">Hledat:</label>
+        <input type="text" id="search-input" oninput="searchInPage()" placeholder="Zadejte hledaný text">
+    </form>
+    
+    <script>
+        function searchInPage() {
+            var searchText = document.getElementById("search-input").value;
+            var content = document.body.textContent;
+            
+            // Ignorovat úvodní slovo při vyhledávání
+            var introText = "Vítejte na mém novém webu";
+            var introIndex = content.indexOf(introText);
+            var introLength = introText.length;
+
+            if (introIndex !== -1) {
+                var introEndIndex = introIndex + introLength;
+                content = content.substring(0, introEndIndex) + content.substring(introEndIndex).replace(new RegExp(searchText, "gi"), "<mark>" + searchText + "</mark>");
+            }
+
+            document.body.innerHTML = content;
+        }
+    </script>
+</body>
+</html>
+
